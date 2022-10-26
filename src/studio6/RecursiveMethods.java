@@ -12,10 +12,14 @@ public class RecursiveMethods {
 	 *         ...)
 	 */
 	public static double geometricSum(int n) {
+		double sum = 0.0;
 		
-			// FIXME compute the geometric sum for the first n terms recursively
-			return 0;
-		
+		if (n == 0)
+	        return 0;
+	    else {
+	    	sum = Math.pow(0.5,n);
+	        return sum + geometricSum(n-1);
+	    }
 	}
 
 	/**
@@ -26,13 +30,17 @@ public class RecursiveMethods {
 	 * @param q second operand
 	 * @return greatest common divisor of p and q
 	 */
-	public static int gcd(int p, int q) {
-		
-			// FIXME compute the gcd of p and q using recursion
-			return 0;
-		
-	}
-
+	public static int gcd(int a, int b) {
+		int temp = b;
+		b = a % b;
+		if (b == 0)	{
+			return temp;
+		}
+		else
+			temp = gcd(temp,b);
+			return temp;
+		}
+	
 	
 
 	/**
@@ -42,10 +50,21 @@ public class RecursiveMethods {
 	 * @return an array with the same data as the input but it reverse order
 	 */
 	public static int[] toReversed(int[] array) {
-		
-			// FIXME create a helper method that can recursively reverse the given array
-			return new int[0];
-		
+		int[] reversedArray = new int[array.length];
+		return trial(array, reversedArray, 0);
+	}
+	
+	public static int[] trial(int[] array, int[] reversedArray, int a) {
+		int length = array.length;
+	
+		if (a == length) {
+			return reversedArray;
+		}
+		else {
+			int mirrorIndex = array.length - a - 1;
+			reversedArray[a] = array[mirrorIndex];
+			return trial(array,reversedArray,a+1);
+		}
 	}
 
 	/**

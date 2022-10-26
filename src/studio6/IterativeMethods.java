@@ -15,24 +15,24 @@ public class IterativeMethods {
 	public static double geometricSum(int n) {
 		double sum = 0.0;
 		for (int power = 1; power <= n; ++power) {
-			sum = sum + Math.pow(0.5, power);
+		sum = sum + Math.pow(0.5, power);
 		}
 		return sum;
-	}
+		}
 
-	/**
-	 * @param p first operand
-	 * @param q second operand
-	 * @return greatest common divisor of p and q
-	 */
-	public static int gcd(int p, int q) {
+		/**
+		* @param p first operand
+		* @param q second operand
+		* @return greatest common divisor of p and q
+		*/
+		public static int gcd(int p, int q) {
 		while (q != 0) {
-			int temp = q;
-			q = p % q;
-			p = temp;
+		int temp = q;
+		q = p % q;
+		p = temp;
 		}
 		return p;
-	}
+		}
 
 	/**
 	 * @param array the array to create a reverse of, not to be mutated
